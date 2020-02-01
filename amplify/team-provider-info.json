@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-meditations-dev-160051-authRole",
+            "UnauthRoleArn": "arn:aws:iam::405618765219:role/amplify-meditations-dev-160051-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::405618765219:role/amplify-meditations-dev-160051-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-meditations-dev-160051-deployment",
+            "UnauthRoleName": "amplify-meditations-dev-160051-unauthRole",
+            "StackName": "amplify-meditations-dev-160051",
+            "StackId": "arn:aws:cloudformation:eu-central-1:405618765219:stack/amplify-meditations-dev-160051/10476560-450c-11ea-bd52-0a233b5d9d4c",
+            "AmplifyAppId": "d39y61hdkok6ax"
+        },
+        "categories": {
+            "auth": {
+                "meditations9a64cde7": {}
+            }
+        }
+    }
+}

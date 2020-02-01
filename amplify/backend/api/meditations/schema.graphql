@@ -1,0 +1,4 @@
+type Meditation @model {
+  id: ID!
+  text: String!
+}
