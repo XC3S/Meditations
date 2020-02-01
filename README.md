@@ -3,7 +3,7 @@ insired by the book [Meditations](https://en.wikipedia.org/wiki/Meditations) fro
 
 ## Pitch
 - write short reminders to yourself
-- get on random reminder as a pushnotification every day
+- get one random reminder as a pushnotification every day
 
 ## Todos
 - [x] Simple Authentication
