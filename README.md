@@ -9,6 +9,10 @@ insired by the book [Meditations](https://en.wikipedia.org/wiki/Meditations) fro
 - [x] Simple Authentication
 - [x] manage a list of reminders
 - [x] Cloud Sync (Offline Capable GraphQL API)
-- [ ] Basic Design
-- [ ] Daily Push Notifications
+- [x] Basic Design
+- [ ] Infotext if the List is empty
+- [ ] a way to logout
+- [ ] update auth theme
+- [ ] add Analytics
+- [ ] Daily Push Notifications (or emails for a webapp)
 - [ ] Account management
