@@ -1,0 +1,17 @@
+.create-form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.create-form-textarea {
+    height: 40vh;
+    margin-bottom: 15px;
+}
+
+.create-form-submit {
+    border: none;
+    height: 40px;
+    background: #604a77;
+    color: white;
+}

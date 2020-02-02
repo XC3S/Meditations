@@ -1,4 +1,5 @@
 import React from 'react';
+import './CreateForm.css';
 
 class CreateForm extends React.Component {
     constructor(props) {
@@ -10,14 +11,12 @@ class CreateForm extends React.Component {
     
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="new-meditation">What needs to be done?</label>
-                <input id="meditation" onChange={this.handleChange} value={this.state.text} />
-                <button>Add</button>
+            <form className="create-form" onSubmit={this.handleSubmit}>
+                <textarea className="create-form-textarea" id="meditation" onChange={this.handleChange} value={this.state.text} />
+                <button className="create-form-submit">Add</button>
             </form>
         )
     }
-    
     
     handleChange(e) {
         this.setState({ text: e.target.value });

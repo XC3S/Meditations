@@ -43,8 +43,7 @@ class MeditationsApp extends React.Component {
         <div className="app-body">
           <Switch>
             <Route path="/create">
-                <h4>Write</h4>
-                <CreateForm createMeditation={this.createMeditation}/>
+              <CreateForm createMeditation={this.createMeditation}/>
             </Route>
             <Route path="/">
               <MeditationList items={this.state.items} deleteMeditation={this.deleteMeditation}/>

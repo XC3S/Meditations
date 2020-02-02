@@ -8,13 +8,14 @@
 
 .meditation-list-item {
     flex: 0 0 auto;
-    padding: 15px;
+    padding: 20px 15px 0 15px;
 }
 
 .meditation-list-item-text {
     background: #ececec;
     padding: 15px;
     position: relative;
+    white-space: pre-line;
 }
 
 .meditation-list-item-delete {
