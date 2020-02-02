@@ -1,0 +1,24 @@
+.meditation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.meditation-list-item {
+    flex: 0 0 auto;
+    padding: 15px;
+}
+
+.meditation-list-item-text {
+    background: #ececec;
+    padding: 15px;
+    position: relative;
+}
+
+.meditation-list-item-delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

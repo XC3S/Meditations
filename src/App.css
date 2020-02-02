@@ -1,24 +1,14 @@
-.header h3 {
-    background: #47355a;
-    margin: 0;
-    padding: 15px;
-    color: white;
-}
-
-.nav-list {
-    list-style: none;     
+#root { 
     display: flex;
-    background: #604a77;
-    margin-top: 0;
-    padding: 0;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.nav-list li {
+.app-header {
     flex: 0 0 auto;
-    padding: 15px;
 }
 
-.nav-list li a {
-    color: #ffffff;
-    text-decoration: none;
+.app-body {
+    flex: 1 1 auto;
+    overflow: auto;
 }

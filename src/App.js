@@ -37,18 +37,16 @@ class MeditationsApp extends React.Component {
   render() {
     return (
       <Router>
-        <div className="header">
+        <div className="app-header">
           <Header />
-          
+        </div>
+        <div className="app-body">
           <Switch>
             <Route path="/create">
-              <div>
                 <h4>Write</h4>
                 <CreateForm createMeditation={this.createMeditation}/>
-              </div>
             </Route>
             <Route path="/">
-              <h4>List</h4>
               <MeditationList items={this.state.items} deleteMeditation={this.deleteMeditation}/>
             </Route>
           </Switch>
