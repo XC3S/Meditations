@@ -10,6 +10,13 @@ import _ from "lodash";
 import awsconfig from './aws-exports';
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 Amplify.configure(awsconfig);
 
 const signUpConfig = {
@@ -45,23 +52,46 @@ class MeditationsApp extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Meditation</h3>
-        <MeditationList items={this.state.items} deleteMeditation={this.deleteMeditation}/>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="new-meditation">
-            What needs to be done?
-          </label>
-          <input
-            id="meditation"
-            onChange={this.handleChange}
-            value={this.state.text}
-          />
-          <button>
-            Add #{this.state.items.length + 1}
-          </button>
-        </form>
-      </div>
+      <Router>
+        <div className="header">
+          <h3>Meditation</h3>
+          <div className="nav">
+            <ul className="nav-list">
+              <li>
+                <Link to="/">Read</Link>
+              </li>
+              <li>
+                <Link to="/create">Create</Link>
+              </li>
+            </ul>
+          </div>
+
+          <Switch>
+            <Route path="/create">
+              <div>
+                <h4>Write</h4>
+                <form onSubmit={this.handleSubmit}>
+                  <label htmlFor="new-meditation">
+                    What needs to be done?
+                  </label>
+                  <input
+                    id="meditation"
+                    onChange={this.handleChange}
+                    value={this.state.text}
+                  />
+                  <button>
+                    Add #{this.state.items.length + 1}
+                  </button>
+                </form>
+              </div>
+            </Route>
+            <Route path="/">
+              <h4>List</h4>
+              <MeditationList items={this.state.items} deleteMeditation={this.deleteMeditation}/>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
   
