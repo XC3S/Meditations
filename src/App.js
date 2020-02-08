@@ -2,13 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Amplify from "@aws-amplify/core";
+import Amplify, { Analytics } from 'aws-amplify';
 import { DataStore, Predicates } from "@aws-amplify/datastore";
 import { Meditation } from "./models";
 import _ from "lodash";
 
 import awsconfig from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+import { withAuthenticator  } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
 import {
   BrowserRouter as Router,
@@ -87,6 +87,10 @@ class MeditationsApp extends React.Component {
     // remove from datastore
     const toDelete = await DataStore.query(Meditation, item.id);
     DataStore.delete(toDelete);
+    
+    Analytics.record({
+      name: 'delete_meditation'
+    });
   }
 
   async createMeditation(text){
@@ -107,6 +111,12 @@ class MeditationsApp extends React.Component {
     this.setState(state => ({
       items: state.items.concat(newItem)
     }));
+    
+    Analytics.record({
+      name: 'create_meditation', 
+      attributes: {}, 
+      metrics: { characters: created.text.length }
+    });
   }
 }
 

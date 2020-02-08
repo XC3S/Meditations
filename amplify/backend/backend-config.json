@@ -23,5 +23,18 @@
 			"dependsOn": [],
 			"customAuth": false
 		}
+	},
+	"analytics": {
+		"meditations": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"meditationsSendMail": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
 	}
 }
