@@ -21,7 +21,10 @@
 			"Type": "AWS::Lambda::Function",
 			"Metadata": {
 				"aws:asset:path": "./src",
-				"aws:asset:property": "Code"
+				"aws:asset:property": "Code",
+				"AWS::CloudFormation::Designer": {
+					"id": "3b9aa194-25ac-46f5-92a1-bd78180d671a"
+				}
 			},
 			"Properties": {
 				"Handler": "index.handler",
@@ -104,6 +107,11 @@
 						}
 					]
 				}
+			},
+			"Metadata": {
+				"AWS::CloudFormation::Designer": {
+					"id": "f4ada357-0e9e-43c0-b958-eb52167b8e1b"
+				}
 			}
 		},
 		"lambdaexecutionpolicy": {
@@ -146,6 +154,56 @@
 							}
 						}
 					]
+				}
+			},
+			"Metadata": {
+				"AWS::CloudFormation::Designer": {
+					"id": "ee03c4a9-9ed6-4824-b08d-8c41f8df5c13"
+				}
+			}
+		},
+		"EventRule": {
+			"Type": "AWS::Events::Rule",
+			"Properties": {
+				"Description": "ScheduledRule",
+				"ScheduleExpression": "cron(0 9 * * ? *)",
+				"State": "ENABLED",
+				"Targets": [
+					{
+						"Arn": {
+							"Fn::GetAtt": [
+								"LambdaFunction",
+								"Arn"
+							]
+						},
+						"Id": "TargetFunctionV1"
+					}
+				]
+			},
+			"Metadata": {
+				"AWS::CloudFormation::Designer": {
+					"id": "5600c972-eb7e-447d-b651-7e11d9ec3b95"
+				}
+			}
+		},
+		"PermissionForEventsToInvokeLambda": {
+			"Type": "AWS::Lambda::Permission",
+			"Properties": {
+				"FunctionName": {
+					"Ref": "LambdaFunction"
+				},
+				"Action": "lambda:InvokeFunction",
+				"Principal": "events.amazonaws.com",
+				"SourceArn": {
+					"Fn::GetAtt": [
+						"EventRule",
+						"Arn"
+					]
+				}
+			},
+			"Metadata": {
+				"AWS::CloudFormation::Designer": {
+					"id": "25152c04-8cd6-495a-ba27-9419f697ce6e"
 				}
 			}
 		}
